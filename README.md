@@ -13,3 +13,4 @@ I am working in this app as part of my training in Material Design and UI Design
 
 The designs for this app can be seen in my invision account: https://projects.invisionapp.com/prototype/Yes-no-Maybe-Android-app-cjs5tcg4c00gwat01pk7eb8lo
 
+![Alt text](https://github.com/carovaldezg/YesNoMaybeApp/blob/master/splashscreen.png)
