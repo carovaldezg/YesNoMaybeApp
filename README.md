@@ -12,3 +12,4 @@ This is a simple app with the following features:
 I am working in this app as part of my training in Material Design and UI Design. Additionally, this app will be part of a serie of posts related to what's the process a person with an idea will pass through to become that idea a custom software solution. These posts will be oriented to people with no background in technology, to share best practices and guide people to find the right technology partner to develop their ideas.
 
 The designs for this app can be seen in my invision account: https://projects.invisionapp.com/prototype/Yes-no-Maybe-Android-app-cjs5tcg4c00gwat01pk7eb8lo
+
