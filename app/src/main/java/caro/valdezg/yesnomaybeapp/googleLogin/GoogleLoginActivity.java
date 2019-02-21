@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -22,7 +23,6 @@ import caro.valdezg.yesnomaybeapp.R;
 import caro.valdezg.yesnomaybeapp.common.mvp.views.ILoadingView;
 import caro.valdezg.yesnomaybeapp.common.ui.LoadingUtils;
 import caro.valdezg.yesnomaybeapp.home.HomeActivity;
-import caro.valdezg.yesnomaybeapp.splashscreen.SplashScreenActivity;
 
 public class GoogleLoginActivity extends AppCompatActivity implements ILoginView, ILoadingView,
         GoogleApiClient.OnConnectionFailedListener {
@@ -41,6 +41,8 @@ public class GoogleLoginActivity extends AppCompatActivity implements ILoginView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_google_login);
         init();
 
@@ -122,7 +124,6 @@ public class GoogleLoginActivity extends AppCompatActivity implements ILoginView
         mLoadingDialog.dismiss();
         startActivity(new Intent(GoogleLoginActivity.this, HomeActivity.class));
         finish();
-        Toast.makeText(this,"anduvo", Toast.LENGTH_LONG).show();
     }
 
     private void renderShowLoadingState(ShowLoadingState state) {
@@ -130,6 +131,6 @@ public class GoogleLoginActivity extends AppCompatActivity implements ILoginView
     }
 
     @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-    }
+    public void onPointerCaptureChanged(boolean hasCapture) {}
+
 }

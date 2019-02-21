@@ -2,6 +2,8 @@ package caro.valdezg.yesnomaybeapp.home;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -26,6 +28,9 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_home_tabs);
         ButterKnife.bind(this);
         mPagerAdapter = new PagesFragmentAdapter(getSupportFragmentManager(), this);
