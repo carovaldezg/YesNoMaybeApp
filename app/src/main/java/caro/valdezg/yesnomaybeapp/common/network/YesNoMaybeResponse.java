@@ -1,9 +1,11 @@
 package caro.valdezg.yesnomaybeapp.common.network;
 
 
+import com.google.gson.annotations.SerializedName;
+
 public class YesNoMaybeResponse {
 
- /*   @SerializedName("answer")
+    @SerializedName("answer")
     private String answer;
     @SerializedName("forced")
     private Boolean forced;
@@ -33,5 +35,5 @@ public class YesNoMaybeResponse {
     public void setImage(String image) {
         this.image = image;
     }
-*/
+
 }

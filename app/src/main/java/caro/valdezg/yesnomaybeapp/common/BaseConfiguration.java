@@ -2,10 +2,6 @@ package caro.valdezg.yesnomaybeapp.common;
 
 public class BaseConfiguration {
 
-    public static class ApiVersion {
-        public static final String VERSION = "api/v1/";
-    }
-
     public static class Router {
 
         public static int SPLASH_DELAY = 1500;
@@ -13,6 +9,7 @@ public class BaseConfiguration {
     }
 
     public static class Login {
+
         public static final int GOOGLE_SIGN_IN_TRIES = 10;
 
     }

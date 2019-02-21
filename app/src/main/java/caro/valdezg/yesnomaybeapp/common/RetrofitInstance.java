@@ -1,10 +1,13 @@
 package caro.valdezg.yesnomaybeapp.common;
 
 
-/*public class RetrofitInstance {
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+public class RetrofitInstance {
 
     private static Retrofit retrofit;
-    private static final String BASE_URL = "https://yesno.wtf/api";
+    private static final String BASE_URL = "https://yesno.wtf";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
@@ -17,4 +20,3 @@ package caro.valdezg.yesnomaybeapp.common;
     }
 
 }
-*/

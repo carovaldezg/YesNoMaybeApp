@@ -9,4 +9,6 @@
     <string name="error_unexpecter_api_server_error">Unexpected server error, please try again</string>
     <string name="no_internet_error">Please verify your inteernet connection</string>
     <string name="error_connecting_google_services">Error connection Google Play Services</string>
+    <string name="instructions">Think on a question and then click the button to know the answer!</string>
+    <string name="ask">ask</string>
 </resources>

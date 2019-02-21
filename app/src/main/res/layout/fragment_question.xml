@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tory_blue"
+    android:layout_gravity="center">
+
+    <include
+        layout="@layout/title_bar"
+        android:id="@+id/activity_side_menu_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/spacing_large"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/rounded_corners_layout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_medium_extra"
+            android:layout_marginRight="@dimen/spacing_medium_extra"
+            android:layout_marginBottom="@dimen/spacing_huge_margin"
+            android:text="@string/instructions"
+            android:textAlignment="center"
+            style="@style/LargeText.Blue" />
+
+        <Button
+            android:id="@+id/fragment_question_ask_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_shape"
+            android:text="@string/ask"
+            android:layout_gravity="center"
+            style="@style/LargeText.Blue"/>
+
+    </LinearLayout>
+
+</LinearLayout>
