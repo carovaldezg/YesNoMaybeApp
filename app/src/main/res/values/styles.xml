@@ -16,4 +16,16 @@
         <item name="android:textColor">@color/tory_blue</item>
     </style>
 
+    <style name="LargeText.Shamrock" parent="LargeText">
+        <item name="android:textColor">@color/Shamrock</item>
+    </style>
+
+    <style name="GiantText">
+        <item name="android:textSize">@dimen/font_giant</item>
+    </style>
+
+    <style name="GiantText.Blue" parent="GiantText">
+        <item name="android:textColor">@color/tory_blue</item>
+    </style>
+
 </resources>

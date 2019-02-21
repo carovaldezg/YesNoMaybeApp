@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 import androidx.annotation.NonNull;
@@ -18,9 +20,15 @@ import caro.valdezg.yesnomaybeapp.R;
 public class QuestionTabFragment extends Fragment implements QuestionView {
 
     @BindView(R.id.fragment_question_ask_button)
-    Button askButton;
+    Button mAskButton;
     @BindView(R.id.fragment_question_title_bar_toolbar)
     Toolbar mToolbar;
+    @BindView(R.id.fragment_question_question_linear_layout)
+    LinearLayout mQuestionLayout;
+    @BindView(R.id.fragment_question_answer_linear_layout)
+    LinearLayout mAnswerLayout;
+    @BindView(R.id.fragment_question_ask_again_text_view)
+    TextView mAskAgainButton;
 
     private QuestionPresenter mQuestionPresenter;
 
@@ -41,12 +49,35 @@ public class QuestionTabFragment extends Fragment implements QuestionView {
 
     @OnClick(R.id.fragment_question_ask_button)
     public void onClickAskButton() {
+        mAskButton.setClickable(false);
         mQuestionPresenter.getAnswerToTheQuestion();
     }
 
+    @OnClick(R.id.fragment_question_ask_again_text_view)
+    public void onClickAskAgain() {
+        mAskAgainButton.setClickable(false);
+        mAskButton.setClickable(true);
+        mAnswerLayout.setVisibility(View.GONE);
+        mQuestionLayout.setVisibility(View.VISIBLE);
+    }
 
     @Override
     public void render(@NonNull State state) {
+        if (state instanceof ShowAnswer) {
+            renderShowAnswer();
+        } else if (state instanceof ShowErrorState) {
+            renderShowErrorState();
+        }
+    }
+
+    private void renderShowAnswer() {
+        mAskAgainButton.setClickable(true);
+        mQuestionLayout.setVisibility(View.GONE);
+        mAnswerLayout.setVisibility(View.VISIBLE);
+    }
+
+    private void renderShowErrorState() {
 
     }
+
 }

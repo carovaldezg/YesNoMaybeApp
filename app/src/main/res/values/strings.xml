@@ -12,4 +12,6 @@
     <string name="instructions">Think on a question and then click the button to know the answer!</string>
     <string name="ask">ask</string>
     <string name="question_bar_title">Question</string>
+    <string name="answer_title">The answer to your question is</string>
+    <string name="ask_again">Ask again</string>
 </resources>
