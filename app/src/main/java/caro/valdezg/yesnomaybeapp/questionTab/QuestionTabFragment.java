@@ -5,9 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+
+import com.bumptech.glide.Glide;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -29,6 +32,10 @@ public class QuestionTabFragment extends Fragment implements QuestionView {
     LinearLayout mAnswerLayout;
     @BindView(R.id.fragment_question_ask_again_text_view)
     TextView mAskAgainButton;
+    @BindView(R.id.fragment_question_answer_img_image_view)
+    ImageView mAnswerGif;
+    @BindView(R.id.fragment_question_answer_text_view)
+    TextView mAnswer;
 
     private QuestionPresenter mQuestionPresenter;
 
@@ -64,14 +71,19 @@ public class QuestionTabFragment extends Fragment implements QuestionView {
     @Override
     public void render(@NonNull State state) {
         if (state instanceof ShowAnswer) {
-            renderShowAnswer();
+            renderShowAnswer((ShowAnswer) state);
         } else if (state instanceof ShowErrorState) {
             renderShowErrorState();
         }
     }
 
-    private void renderShowAnswer() {
+    private void renderShowAnswer(ShowAnswer state) {
         mAskAgainButton.setClickable(true);
+        mAnswer.setText(state.yesNoMaybeResponse.getAnswer());
+        Glide.with(getContext())
+                .load(state.yesNoMaybeResponse.getImage())
+                .asGif()
+                .into(R.id.fragment_question_answer_img_image_view);
         mQuestionLayout.setVisibility(View.GONE);
         mAnswerLayout.setVisibility(View.VISIBLE);
     }
