@@ -5,6 +5,10 @@
         <shape>
             <corners android:radius="10dp"/>
             <solid android:color="@color/mercuri"/>
+            <stroke
+                android:width="2px"
+                android:color="@color/alto">
+            </stroke>
         </shape>
     </item>
 </layer-list>

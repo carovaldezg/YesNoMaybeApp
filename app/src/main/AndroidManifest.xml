@@ -21,7 +21,6 @@
         </activity>
         <activity android:name=".home.HomeActivity"></activity>
         <activity android:name=".questionTab.QuestionActivity"></activity>
-        <activity android:name=".about.AboutActivity"></activity>
     </application>
 
 </manifest>

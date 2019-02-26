@@ -12,6 +12,14 @@
         <item name="android:textSize">@dimen/font_huge</item>
     </style>
 
+    <style name="MediumText">
+        <item name="android:textSize">@dimen/font_medium_extra</item>
+    </style>
+
+    <style name="MediumText.Blue" parent="MediumText">
+        <item name="android:textColor">@color/tory_blue</item>
+    </style>
+
     <style name="LargeText.Blue" parent="LargeText">
         <item name="android:textColor">@color/tory_blue</item>
     </style>
@@ -25,6 +33,10 @@
     </style>
 
     <style name="GiantText.Blue" parent="GiantText">
+        <item name="android:textColor">@color/tory_blue</item>
+    </style>
+
+    <style name="BlueText">
         <item name="android:textColor">@color/tory_blue</item>
     </style>
 

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import caro.valdezg.yesnomaybeapp.R;
+import caro.valdezg.yesnomaybeapp.about.AboutTabFragment;
 import caro.valdezg.yesnomaybeapp.questionTab.QuestionTabFragment;
 
 public class PagesFragmentAdapter  extends FragmentPagerAdapter {
@@ -45,7 +46,7 @@ public class PagesFragmentAdapter  extends FragmentPagerAdapter {
 
     @NonNull
     protected Fragment[] getFragments() {
-        return new Fragment[]{new QuestionTabFragment(), new QuestionTabFragment(), new QuestionTabFragment()};
+        return new Fragment[]{new QuestionTabFragment(), new QuestionTabFragment(), new AboutTabFragment()};
        // return new Fragment[]{new QuestionTabFragment(), new ProfileFragment(), new AboutTabFragment()};
     }
 

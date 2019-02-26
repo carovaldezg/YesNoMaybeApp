@@ -12,10 +12,15 @@
     <string name="instructions">Think on a question and then click the button to know the answer!</string>
     <string name="ask">ask</string>
     <string name="question_bar_title">Question</string>
+    <string name="about_bar_title">About</string>
     <string name="answer_title">The answer to your question is</string>
     <string name="ask_again">Ask again</string>
     <string name="credits">Designed, developed and published by Caro Val</string>
     <string name="app_goal">This app has been developed as part of a digital business and technological partenship tutorial, read about it in Medium!</string>
     <string name="github">You can see the app code in github!</string>
     <string name="linkedin">Let\'s keep in touch!</string>
+    <string name="github_url">https://www.github.com/carovaldezg</string>
+    <string name="linkedin_url">https://www.linkedin.com/in/carovaldezg</string>
+    <string name="medium_url">https://medium.com/@carolina.valdez</string>
+    <string name="error_no_browser_found">There are no browsers installed in your device.</string>
 </resources>
