@@ -79,11 +79,12 @@ public class QuestionTabFragment extends Fragment implements QuestionView {
 
     private void renderShowAnswer(ShowAnswer state) {
         mAskAgainButton.setClickable(true);
-        mAnswer.setText(state.yesNoMaybeResponse.getAnswer());
+        String answer = state.yesNoMaybeResponse.getAnswer().toUpperCase() + "!!!";
+        mAnswer.setText(answer);
         Glide.with(getContext())
                 .load(state.yesNoMaybeResponse.getImage())
                 .asGif()
-                .into(R.id.fragment_question_answer_img_image_view);
+                .into(mAnswerGif);
         mQuestionLayout.setVisibility(View.GONE);
         mAnswerLayout.setVisibility(View.VISIBLE);
     }

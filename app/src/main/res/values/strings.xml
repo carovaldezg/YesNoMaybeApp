@@ -14,4 +14,8 @@
     <string name="question_bar_title">Question</string>
     <string name="answer_title">The answer to your question is</string>
     <string name="ask_again">Ask again</string>
+    <string name="credits">Designed, developed and published by Caro Val</string>
+    <string name="app_goal">This app has been developed as part of a digital business and technological partenship tutorial, read about it in Medium!</string>
+    <string name="github">You can see the app code in github!</string>
+    <string name="linkedin">Let\'s keep in touch!</string>
 </resources>

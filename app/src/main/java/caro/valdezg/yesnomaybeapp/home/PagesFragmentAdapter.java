@@ -46,7 +46,7 @@ public class PagesFragmentAdapter  extends FragmentPagerAdapter {
     @NonNull
     protected Fragment[] getFragments() {
         return new Fragment[]{new QuestionTabFragment(), new QuestionTabFragment(), new QuestionTabFragment()};
-       // return new Fragment[]{new QuestionTabFragment(), new ProfileFragment(), new AboutFragment()};
+       // return new Fragment[]{new QuestionTabFragment(), new ProfileFragment(), new AboutTabFragment()};
     }
 
 }

@@ -60,7 +60,7 @@
             android:layout_marginBottom="@dimen/spacing_big"
             android:gravity="center"
             android:text="@string/answer_title"
-            style="@style/LargeText.Blue" />
+            style="@style/GiantText.Blue" />
 
         <ImageView
             android:id="@+id/fragment_question_answer_img_image_view"
