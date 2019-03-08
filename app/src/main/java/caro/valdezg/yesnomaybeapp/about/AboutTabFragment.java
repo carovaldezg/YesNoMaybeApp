@@ -34,7 +34,7 @@ public class AboutTabFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_about, container, false);
         ButterKnife.bind(this,rootView);
-        mToolbar.setTitle(R.string.question_bar_title);
+        mToolbar.setTitle(R.string.about_bar_title);
         mToolbar.setTitleTextColor(getResources().getColor(R.color.Shamrock));
         return rootView;
     }

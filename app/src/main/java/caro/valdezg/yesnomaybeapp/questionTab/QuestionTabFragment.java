@@ -2,6 +2,7 @@ package caro.valdezg.yesnomaybeapp.questionTab;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +45,8 @@ public class QuestionTabFragment extends Fragment implements QuestionView, ILoad
     ImageView mAnswerGif;
     @BindView(R.id.fragment_question_answer_text_view)
     TextView mAnswer;
+    @BindView(R.id.fragment_question_share_image_view)
+    ImageView mShareButton;
 
     private QuestionPresenter mQuestionPresenter;
     private Dialog mLoadingDialog;
@@ -129,6 +132,16 @@ public class QuestionTabFragment extends Fragment implements QuestionView, ILoad
     private void renderShowErrorState() {
         mLoadingDialog.dismiss();
         Toast.makeText(this.getContext(), getString(R.string.error_unexpecter_api_server_error), Toast.LENGTH_LONG).show();
+    }
+
+    @OnClick
+    protected void onClickShareButton() {
+        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = getResources().getString(R.string.share_body_text) + mAnswer.getText();
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getResources().getString(R.string.share_subject));
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, getResources().getString(R.string.share_via)));
     }
 
 }
