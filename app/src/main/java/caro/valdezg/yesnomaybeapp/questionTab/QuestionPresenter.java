@@ -1,6 +1,7 @@
 package caro.valdezg.yesnomaybeapp.questionTab;
 
 import caro.valdezg.yesnomaybeapp.common.RetrofitInstance;
+import caro.valdezg.yesnomaybeapp.common.mvp.views.ILoadingView;
 import caro.valdezg.yesnomaybeapp.common.network.QuestionService;
 import caro.valdezg.yesnomaybeapp.common.network.YesNoMaybeResponse;
 import retrofit2.Call;
@@ -16,6 +17,7 @@ public class QuestionPresenter {
     }
 
     public void getAnswerToTheQuestion() {
+        mViewInstance.render(new ILoadingView.ShowLoadingState());
         QuestionService service = RetrofitInstance.getRetrofitInstance().create(QuestionService.class);
         Call<YesNoMaybeResponse> call = service.getAnswer();
         call.enqueue(new Callback<YesNoMaybeResponse>() {

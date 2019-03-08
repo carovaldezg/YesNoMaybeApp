@@ -1,5 +1,7 @@
 package caro.valdezg.yesnomaybeapp.questionTab;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +10,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -19,8 +25,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import caro.valdezg.yesnomaybeapp.R;
+import caro.valdezg.yesnomaybeapp.common.mvp.views.ILoadingView;
+import caro.valdezg.yesnomaybeapp.common.ui.LoadingUtils;
+import caro.valdezg.yesnomaybeapp.googleLogin.GoogleLoginActivity;
 
-public class QuestionTabFragment extends Fragment implements QuestionView {
+public class QuestionTabFragment extends Fragment implements QuestionView, ILoadingView {
 
     @BindView(R.id.fragment_question_ask_button)
     Button mAskButton;
@@ -38,9 +47,17 @@ public class QuestionTabFragment extends Fragment implements QuestionView {
     TextView mAnswer;
 
     private QuestionPresenter mQuestionPresenter;
+    private Dialog mLoadingDialog;
+
 
     public QuestionTabFragment() {
         mQuestionPresenter = new QuestionPresenter(this);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        mLoadingDialog = LoadingUtils.buildLoadingDialog(getActivity());
     }
 
     @Override
@@ -66,6 +83,7 @@ public class QuestionTabFragment extends Fragment implements QuestionView {
         mAskButton.setClickable(true);
         mAnswerLayout.setVisibility(View.GONE);
         mQuestionLayout.setVisibility(View.VISIBLE);
+        mAnswer.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -74,23 +92,44 @@ public class QuestionTabFragment extends Fragment implements QuestionView {
             renderShowAnswer((ShowAnswer) state);
         } else if (state instanceof ShowErrorState) {
             renderShowErrorState();
+        } else if (state instanceof ShowLoadingState) {
+            renderShowLoadingState((ShowLoadingState) state);
         }
+    }
+
+    private void renderShowLoadingState(ILoadingView.ShowLoadingState state) {
+        mLoadingDialog.show();
     }
 
     private void renderShowAnswer(ShowAnswer state) {
         mAskAgainButton.setClickable(true);
-        String answer = state.yesNoMaybeResponse.getAnswer().toUpperCase() + "!!!";
-        mAnswer.setText(answer);
+
         Glide.with(getContext())
-                .load(state.yesNoMaybeResponse.getImage())
-                .asGif()
+                .load(state.yesNoMaybeResponse.getImage()).centerCrop()
+                .listener(new RequestListener<String, GlideDrawable>() {
+            @Override
+            public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                mLoadingDialog.dismiss();
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                mLoadingDialog.dismiss();
+                String answer = state.yesNoMaybeResponse.getAnswer().toUpperCase() + "!!!";
+                mAnswer.setText(answer);
+                mAnswer.setVisibility(View.VISIBLE);
+                return false;
+            }
+        })
                 .into(mAnswerGif);
         mQuestionLayout.setVisibility(View.GONE);
         mAnswerLayout.setVisibility(View.VISIBLE);
     }
 
     private void renderShowErrorState() {
-
+        mLoadingDialog.dismiss();
+        Toast.makeText(this.getContext(), getString(R.string.error_unexpecter_api_server_error), Toast.LENGTH_LONG).show();
     }
 
 }

@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/spacing_medium_extra"
             android:layout_marginRight="@dimen/spacing_medium_extra"
-            android:layout_marginBottom="@dimen/spacing_huge_margin"
+            android:layout_marginBottom="@dimen/spacing_largest_margin"
             android:text="@string/instructions"
             android:textAlignment="center"
             style="@style/LargeText.Blue" />
@@ -60,7 +60,8 @@
             android:layout_marginBottom="@dimen/spacing_big"
             android:gravity="center"
             android:text="@string/answer_title"
-            style="@style/GiantText.Blue" />
+            style="@style/GiantText.Blue"
+            android:visibility="invisible"/>
 
         <ImageView
             android:id="@+id/fragment_question_answer_img_image_view"

@@ -108,8 +108,8 @@ public class GoogleLoginActivity extends AppCompatActivity implements ILoginView
             renderOnFailedSignIn();
         } else if (state instanceof NavigateToHomeScreen) {
             renderNavigateToHomeScreen();
-        } else if (state instanceof ILoadingView.ShowLoadingState) {
-            renderShowLoadingState((ILoadingView.ShowLoadingState) state);
+        } else if (state instanceof ShowLoadingState) {
+            renderShowLoadingState((ShowLoadingState) state);
         }
     }
 

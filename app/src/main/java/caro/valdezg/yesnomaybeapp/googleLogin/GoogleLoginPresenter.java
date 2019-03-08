@@ -1,5 +1,7 @@
 package caro.valdezg.yesnomaybeapp.googleLogin;
 
+import android.content.Context;
+
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import caro.valdezg.yesnomaybeapp.common.mvp.model.LoginRequest;
@@ -14,19 +16,18 @@ public class GoogleLoginPresenter {
 
     public GoogleLoginPresenter(ILoginView mainActivity) {
         mViewInstance = mainActivity;
+        loginRequest = null;
     }
 
 
     public void onGoogleSignIn(final GoogleSignInAccount googleSignInAccount) {
         if (mViewInstance == null) return;
-
+        mGoogleSignInAccount = googleSignInAccount;
         mViewInstance.render(new ILoadingView.ShowLoadingState());
-        if (googleSignInAccount != null) {
-            loginRequest = new LoginRequest(googleSignInAccount.getIdToken(),
-                    googleSignInAccount.getFamilyName(), googleSignInAccount.getEmail(),
-                    googleSignInAccount.getDisplayName(), googleSignInAccount.getGivenName(),
-                    googleSignInAccount.getId());
-            mGoogleSignInAccount = googleSignInAccount;
+        if (mGoogleSignInAccount != null) {
+            loginRequest = new LoginRequest(mGoogleSignInAccount.getFamilyName(),
+                    mGoogleSignInAccount.getEmail(),mGoogleSignInAccount.getDisplayName(),
+                    mGoogleSignInAccount.getGivenName(), mGoogleSignInAccount.getId());
             mViewInstance.render(new ILoginView.NavigateToHomeScreen());
         } else {
                 mViewInstance.render(new ILoginView.OnFailedSignIn());
