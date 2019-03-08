@@ -25,9 +25,10 @@ public class GoogleLoginPresenter {
         mGoogleSignInAccount = googleSignInAccount;
         mViewInstance.render(new ILoadingView.ShowLoadingState());
         if (mGoogleSignInAccount != null) {
-            loginRequest = new LoginRequest(mGoogleSignInAccount.getFamilyName(),
-                    mGoogleSignInAccount.getEmail(),mGoogleSignInAccount.getDisplayName(),
-                    mGoogleSignInAccount.getGivenName(), mGoogleSignInAccount.getId());
+            loginRequest = LoginRequest.getsInstance();
+            loginRequest.saveUserData( mGoogleSignInAccount.getEmail(),
+                    mGoogleSignInAccount.getGivenName() + " "+ mGoogleSignInAccount.getFamilyName(),
+                     mGoogleSignInAccount.getDisplayName());
             mViewInstance.render(new ILoginView.NavigateToHomeScreen());
         } else {
                 mViewInstance.render(new ILoginView.OnFailedSignIn());

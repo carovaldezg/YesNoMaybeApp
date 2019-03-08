@@ -27,7 +27,6 @@ import butterknife.OnClick;
 import caro.valdezg.yesnomaybeapp.R;
 import caro.valdezg.yesnomaybeapp.common.mvp.views.ILoadingView;
 import caro.valdezg.yesnomaybeapp.common.ui.LoadingUtils;
-import caro.valdezg.yesnomaybeapp.googleLogin.GoogleLoginActivity;
 
 public class QuestionTabFragment extends Fragment implements QuestionView, ILoadingView {
 

@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import caro.valdezg.yesnomaybeapp.R;
 import caro.valdezg.yesnomaybeapp.about.AboutTabFragment;
+import caro.valdezg.yesnomaybeapp.profile.ProfileTabFragment;
 import caro.valdezg.yesnomaybeapp.questionTab.QuestionTabFragment;
 
 public class PagesFragmentAdapter  extends FragmentPagerAdapter {
@@ -36,7 +37,6 @@ public class PagesFragmentAdapter  extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        // Generate title based on item position
         return mTabTitles[position];
     }
 
@@ -46,8 +46,7 @@ public class PagesFragmentAdapter  extends FragmentPagerAdapter {
 
     @NonNull
     protected Fragment[] getFragments() {
-        return new Fragment[]{new QuestionTabFragment(), new QuestionTabFragment(), new AboutTabFragment()};
-       // return new Fragment[]{new QuestionTabFragment(), new ProfileFragment(), new AboutTabFragment()};
+        return new Fragment[]{new QuestionTabFragment(), new ProfileTabFragment(), new AboutTabFragment()};
     }
 
 }

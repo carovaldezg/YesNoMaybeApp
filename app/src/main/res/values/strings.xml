@@ -13,6 +13,7 @@
     <string name="ask">ask</string>
     <string name="question_bar_title">Question</string>
     <string name="about_bar_title">About</string>
+    <string name="profile_bar_title">Profile</string>
     <string name="answer_title">The answer is</string>
     <string name="ask_again">Ask again</string>
     <string name="credits">Designed, developed and published by Caro Val</string>
@@ -23,4 +24,12 @@
     <string name="linkedin_url">https://www.linkedin.com/in/carovaldezg</string>
     <string name="medium_url">https://medium.com/@carolina.valdez</string>
     <string name="error_no_browser_found">There are no browsers installed in your device.</string>
+    <string name="name">Name: </string>
+    <string name="google_user_name">User name: </string>
+    <string name="email">Email: </string>
+    <string name="log_out">Log out</string>
+    <string name="no_user_info_found">No user info found</string>
+
+
+
 </resources>
