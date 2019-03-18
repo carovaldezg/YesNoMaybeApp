@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            storeFile file('/Users/carolinavaldez/Desktop/yes no maybe app/keystore')
+            keyAlias 'yesnomaybe'
+            keyPassword 'chadrick'
+            storePassword 'chadrick'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "caro.valdezg.yesnomaybeapp"
@@ -16,7 +24,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -24,7 +31,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha02'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'
@@ -39,5 +46,4 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     implementation 'com.android.support:support-v4:28.1.1'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
-
 }
