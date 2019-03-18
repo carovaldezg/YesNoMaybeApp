@@ -9,12 +9,12 @@
     <string name="error_unexpecter_api_server_error">Unexpected server error, please try again</string>
     <string name="no_internet_error">Please verify your inteernet connection</string>
     <string name="error_connecting_google_services">Error connection Google Play Services</string>
-    <string name="instructions">Think about a specific question, then click the button to get the answer!</string>
+    <string name="instructions">Ask the magical internet fortune teller yes or no questions and click the button!</string>
     <string name="ask">ask</string>
     <string name="question_bar_title">Question</string>
     <string name="about_bar_title">About</string>
     <string name="profile_bar_title">Profile</string>
-    <string name="answer_title">The answer is</string>
+    <string name="answer_title">Your answer is</string>
     <string name="ask_again">Ask again</string>
     <string name="credits">Designed, developed and published by Caro Val</string>
     <string name="app_goal">This app has been developed as part of a digital business and technological partenship tutorial, read about it in Medium!</string>
@@ -29,7 +29,7 @@
     <string name="email">Email: </string>
     <string name="log_out">Log out</string>
     <string name="no_user_info_found">No user info found</string>
-    <string name="share_body_text">YesNoMaybeApp has told me my answer is: </string>
+    <string name="share_body_text">Fortune teller YesNoMaybeApp has told me my answer is: </string>
     <string name="share_subject">Try YesNoMaybeApp!</string>
     <string name="share_via">Share via</string>
 

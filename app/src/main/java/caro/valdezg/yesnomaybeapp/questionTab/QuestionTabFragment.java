@@ -47,6 +47,8 @@ public class QuestionTabFragment extends Fragment implements QuestionView, ILoad
     TextView mAnswer;
     @BindView(R.id.fragment_question_share_image_view)
     ImageView mShareButton;
+    @BindView(R.id.fragment_question_answer_title_text_view)
+    TextView mAnswerTitle;
 
     private QuestionPresenter mQuestionPresenter;
     private Dialog mLoadingDialog;
@@ -86,6 +88,7 @@ public class QuestionTabFragment extends Fragment implements QuestionView, ILoad
         mAnswerLayout.setVisibility(View.GONE);
         mQuestionLayout.setVisibility(View.VISIBLE);
         mAnswer.setVisibility(View.INVISIBLE);
+        mAnswerTitle.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -105,7 +108,6 @@ public class QuestionTabFragment extends Fragment implements QuestionView, ILoad
 
     private void renderShowAnswer(ShowAnswer state) {
         mAskAgainButton.setClickable(true);
-
         Glide.with(getContext())
                 .load(state.yesNoMaybeResponse.getImage()).centerCrop()
                 .listener(new RequestListener<String, GlideDrawable>() {
@@ -121,6 +123,7 @@ public class QuestionTabFragment extends Fragment implements QuestionView, ILoad
                 String answer = state.yesNoMaybeResponse.getAnswer().toUpperCase() + "!!!";
                 mAnswer.setText(answer);
                 mAnswer.setVisibility(View.VISIBLE);
+                mAnswerTitle.setVisibility(View.VISIBLE);
                 return false;
             }
         })

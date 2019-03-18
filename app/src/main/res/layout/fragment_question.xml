@@ -54,6 +54,16 @@
         android:visibility="gone">
 
         <TextView
+            android:id="@+id/fragment_question_answer_title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_big"
+            android:gravity="center"
+            android:text="@string/answer_title"
+            style="@style/MediumText.Blue"
+            android:visibility="invisible"/>
+
+        <TextView
             android:id="@+id/fragment_question_answer_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,6 +80,7 @@
             android:layout_marginBottom="@dimen/spacing_big"/>
 
         <LinearLayout
+            android:id="@+id/fragment_question_ask_again_linear_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/spacing_big"

@@ -12,6 +12,7 @@ import butterknife.BindArray;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import caro.valdezg.yesnomaybeapp.R;
+import caro.valdezg.yesnomaybeapp.common.ui.IconTextTabItem;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -31,11 +32,24 @@ public class HomeActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_home_tabs);
         ButterKnife.bind(this);
+        mTabsTitle = getResources().getStringArray(R.array.home_tabs_title);
         mPagerAdapter = new PagesFragmentAdapter(getSupportFragmentManager(), this);
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.setAdapter(mPagerAdapter);
         mViewPager.setOffscreenPageLimit(mPagerAdapter.getCount());
         mTabLayout.setupWithViewPager(mViewPager);
+
+        IconTextTabItem tabItemGoals = new IconTextTabItem
+                (this, mTabsTitle[0], R.drawable.ic_question);
+        IconTextTabItem tabItemTasks = new IconTextTabItem
+                (this, mTabsTitle[1], R.drawable.ic_userprofile);
+        IconTextTabItem tabItemSale = new IconTextTabItem
+                (this, mTabsTitle[2], R.drawable.ic_about);
+
+        mTabLayout.getTabAt(0).setCustomView(tabItemGoals);
+        mTabLayout.getTabAt(1).setCustomView(tabItemTasks);
+        mTabLayout.getTabAt(2).setCustomView(tabItemSale);
+        mTabLayout.setTabTextColors(R.color.colorPrimaryDark, R.color.colorPrimary);
     }
 
 }
