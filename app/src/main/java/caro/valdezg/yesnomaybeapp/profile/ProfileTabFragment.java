@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -23,6 +25,7 @@ import caro.valdezg.yesnomaybeapp.R;
 import caro.valdezg.yesnomaybeapp.common.YesNoMaybeApplication;
 import caro.valdezg.yesnomaybeapp.common.mvp.model.LoginRequest;
 import caro.valdezg.yesnomaybeapp.common.mvp.views.ILoadingView;
+import caro.valdezg.yesnomaybeapp.common.ui.CircleTransform;
 import caro.valdezg.yesnomaybeapp.googleLogin.GoogleLoginActivity;
 
 public class ProfileTabFragment extends Fragment implements ILoadingView {
@@ -38,6 +41,8 @@ public class ProfileTabFragment extends Fragment implements ILoadingView {
     @BindView(R.id.fragment_profile_log_out_text_view)
     TextView mLogout;
     GoogleApiClient mGoogleApiClient;
+    @BindView(R.id.fragment_profile_profile_image)
+    ImageView mUserImage;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,6 +58,8 @@ public class ProfileTabFragment extends Fragment implements ILoadingView {
     private void setUI() {
         LoginRequest loginRequest = LoginRequest.getsInstance();
         if (loginRequest != null) {
+            Glide.with(getActivity()).load(loginRequest.getUserPhoto()).transform
+                    (new CircleTransform(this.getActivity())).into(mUserImage);
             mUserName.setText(loginRequest.getUsername());
             mName.setText(loginRequest.getFullName());
             mEmail.setText(loginRequest.getEmail());

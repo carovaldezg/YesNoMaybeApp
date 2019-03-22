@@ -3,8 +3,8 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            storeFile file('/Users/carolinavaldez/Desktop/yes no maybe app/keystore')
-            keyAlias 'yesnomaybe'
+            storeFile file('/Users/carolinavaldez/Desktop/yes no maybe app/keystore_release')
+            keyAlias 'yesnomaybeapprelease'
             keyPassword 'chadrick'
             storePassword 'chadrick'
         }
@@ -14,14 +14,18 @@ android {
         applicationId "caro.valdezg.yesnomaybeapp"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "3.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
         }
     }
     compileOptions {

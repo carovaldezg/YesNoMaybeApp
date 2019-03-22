@@ -28,7 +28,7 @@ public class GoogleLoginPresenter {
             loginRequest = LoginRequest.getsInstance();
             loginRequest.saveUserData( mGoogleSignInAccount.getEmail(),
                     mGoogleSignInAccount.getGivenName() + " "+ mGoogleSignInAccount.getFamilyName(),
-                     mGoogleSignInAccount.getDisplayName());
+                     mGoogleSignInAccount.getDisplayName(), mGoogleSignInAccount.getPhotoUrl().toString());
             mViewInstance.render(new ILoginView.NavigateToHomeScreen());
         } else {
                 mViewInstance.render(new ILoginView.OnFailedSignIn());
