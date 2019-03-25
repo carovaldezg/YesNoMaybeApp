@@ -1,5 +1,5 @@
 # YesNoMaybeApp
-A simple fortune teller app to get a closed answer to your questions! You can download it here: https://play.google.com/store/apps/details?id=caro.valdezg.yesnomaybeapp
+A simple fortune teller app to get a closed answer to your questions! You can download it here: https://play.google.com/store/apps/details?id=caro.valdezg.yesnomaybe
 
 This is a simple app with the following features:
 
