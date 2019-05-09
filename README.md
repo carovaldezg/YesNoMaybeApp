@@ -28,5 +28,7 @@ Additionally, this app has been developed using the follosing libraries:
 
 1) Butterknife for UI binding
 2) Retrofit for server calls
+3) Glide for gif manipulation
+4) Circle image view for image manipulation
 
 ![Alt text](https://github.com/carovaldezg/YesNoMaybeApp/blob/master/splashscreen.png)
