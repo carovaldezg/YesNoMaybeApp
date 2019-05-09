@@ -30,5 +30,6 @@ Additionally, this app has been developed using the follosing libraries:
 2) Retrofit for server calls
 3) Glide for gif manipulation
 4) Circle image view for image manipulation
+5) Material design for UI details
 
 ![Alt text](https://github.com/carovaldezg/YesNoMaybeApp/blob/master/splashscreen.png)
